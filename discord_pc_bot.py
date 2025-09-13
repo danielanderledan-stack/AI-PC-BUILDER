@@ -392,7 +392,9 @@ CATALOG (compact, one line per item):
 How to read the catalog:
 - Only lines that start with "I|" are items.
 - Format is I|Category|Name $Price. The $Price belongs to that Name on the same line.
-- Use these prices for your internal comparisons, but do not output any prices.
+- CRITICAL: Use ONLY these catalog prices for ALL price references. Do not use your training data or estimate prices.
+- NEVER mention prices from your training data - ONLY use the prices shown in the catalog above.
+- When recommending parts, reference the catalog prices, not market prices you know.
 - Treat these catalog prices as the ONLY valid prices; do not estimate or infer prices from anywhere else.
 
 COST RULES (hard constraints):
@@ -427,6 +429,7 @@ Selection guidance:
 - If aesthetics priority is low, pick the cheapest acceptable variant of a given GPU model that matches the colour.
 - If a dGPU strains the budget, consider a capable APU/iGPU path and call it out.
 - CASE: You MUST select a case from the catalog. Choose one that matches the color preference and provides good airflow. Do not skip the case selection.
+- PRICING: ONLY use prices from the catalog above. Do not reference market prices, MSRP, or training data prices.
 
 Parts to avoid:
 - Older GPUs
@@ -1346,12 +1349,9 @@ async def on_message(message):
         )
         restart_embed.add_field(
             name="📋 Available Commands",
-            value="• `!restart` - Start over from beginning\n"
-                  "• `!parts` - Show current build parts\n"
-                  "• `!status` - Check build progress\n"
+            value="• `!build` - Start building a PC\n"
                   "• `!cancel` - Cancel build session\n"
-                  "• `!health` - Check bot status\n"
-                  "• `!collective` - View all builds",
+                  "• `!health` - Check bot status",
             inline=False
         )
         restart_embed.set_footer(text="Type 'cancel' at any time to stop")
@@ -1598,70 +1598,9 @@ async def restart_build(ctx):
     # Start the conversation
     await handle_conversation_mode(ctx, session)
 
-@bot.command(name='parts', help='Show current build parts list', case_insensitive=True)
-async def show_parts(ctx):
-    """Show the current build parts list"""
-    user_id = ctx.author.id
-    
-    if user_id not in session_manager.sessions:
-        await ctx.send("❌ No active PC build session found. Use `!build` to start.")
-        return
-    
-    session = session_manager.get_session(user_id)
-    
-    if not session.build_result:
-        await ctx.send("❌ No build generated yet. Complete the conversation first.")
-        return
-    
-    # Parse and show the current parts
-    await send_build_result(ctx, session, session.build_result)
+# Removed !parts command - users don't need this
 
-@bot.command(name='status', help='Check current build session status', case_insensitive=True)
-async def build_status(ctx):
-    """Check build session status"""
-    user_id = ctx.author.id
-    if user_id in session_manager.sessions:
-        session = session_manager.sessions[user_id]
-        
-        embed = discord.Embed(
-            title="📊 Build Session Status",
-            color=0x0099ff
-        )
-        
-        if session.refinement_mode:
-            embed.add_field(
-                name="Status",
-                value="🎉 Build complete! In refinement mode - you can ask questions or request changes",
-                inline=False
-            )
-        elif session.conversation_mode:
-            collected_fields = len([k for k in conversational_flow.REQUIRED_FIELDS if session.answers.get(k)])
-            embed.add_field(
-                name="Status",
-                value=f"💬 In conversation mode - {collected_fields}/{len(conversational_flow.REQUIRED_FIELDS)} fields collected",
-                inline=False
-            )
-        else:
-            embed.add_field(
-                name="Status",
-                value="ℹ️ No active session. Use `!build` to start!",
-            inline=False
-        )
-        
-        if session.answers:
-            answers_text = ""
-            for key, value in session.answers.items():
-                answers_text += f"**{key.replace('_', ' ').title()}:** {value}\n"
-            
-            embed.add_field(
-                name="Current Answers",
-                value=answers_text[:1000] + ("..." if len(answers_text) > 1000 else ""),
-                inline=False
-            )
-        
-        await ctx.send(embed=embed)
-    else:
-        await ctx.send("ℹ️ No active PC build session. Use `!build` to start!")
+# Removed !status command - users don't need this
 
 @bot.command(name='health', help='Check bot health and dependencies', case_insensitive=True)
 async def health_check(ctx):
@@ -1694,42 +1633,7 @@ async def health_check(ctx):
     
     await ctx.send(embed=embed)
 
-@bot.command(name='collective', case_insensitive=True)
-async def show_collective(ctx):
-    """Show the collective builds file"""
-    try:
-        collective_file = os.path.join(SCRIPT_DIR, "collective_builds.txt")
-        
-        if not os.path.exists(collective_file):
-            await ctx.send("📁 No collective builds file found yet. Complete a build to create one!")
-            return
-        
-        # Read the file
-        with open(collective_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        # Check if file is too large for Discord
-        if len(content) > 1900:  # Leave room for embed formatting
-            # Send as file if too large
-            file = discord.File(collective_file, filename="collective_builds.txt")
-            embed = discord.Embed(
-                title="📁 Collective Builds File",
-                description="The file is too large to display here, so I've attached it as a file.",
-                color=0x0099ff
-            )
-            await ctx.send(embed=embed, file=file)
-        else:
-            # Send as embed
-            embed = discord.Embed(
-                title="📁 Collective Builds",
-                description=f"```\n{content}\n```",
-                color=0x0099ff
-            )
-            await ctx.send(embed=embed)
-            
-    except Exception as e:
-        logger.error(f"Error showing collective file: {e}")
-        await ctx.send("❌ Error reading collective builds file.")
+# Removed !collective command - users should not see all builds for privacy
 
 if __name__ == "__main__":
     print("Starting Discord bot...")
@@ -1747,13 +1651,9 @@ if __name__ == "__main__":
         print()
     
     print("Available commands:")
-    print("- !build (or !Build) - Start building a PC")
-    print("- !restart - Restart PC build from beginning")
-    print("- !parts - Show current build parts list")
-    print("- !status - Check your current build session")
+    print("- !build - Start building a PC")
     print("- !cancel - Cancel current build session")
     print("- !health - Check bot health and dependencies")
-    print("- !collective - View collective builds file")
     print()
     
     print(f"🚀 Bot Instance ID: {INSTANCE_ID}")
