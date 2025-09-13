@@ -1316,11 +1316,28 @@ async def on_message(message):
     if message.author == bot.user:
         return
     
+    # Only respond to PC building messages in threads, not in main channels
+    if not isinstance(message.channel, discord.Thread):
+        # If in ai-pc-builder channel, only allow !build command
+        if message.channel.name.lower() == 'ai-pc-builder':
+            # Check if it's a !build command
+            if message.content.lower().startswith('!build'):
+                await bot.process_commands(message)
+            else:
+                # Delete non-!build messages in ai-pc-builder channel
+                try:
+                    await message.delete()
+                except:
+                    pass  # Ignore if can't delete (permissions, etc.)
+        else:
+            # In other channels, process commands normally
+            await bot.process_commands(message)
+        return
+    
     # Check if user has an active session
     user_id = message.author.id
     if user_id not in session_manager.sessions:
-        await bot.process_commands(message)
-        return
+        return  # Ignore messages in threads if no active session
     
     session = session_manager.get_session(user_id)
     
