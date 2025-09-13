@@ -58,8 +58,8 @@ class FileLock:
         self.release()
 
 # Configuration
-API_KEY = "YOUR_GEMINI_API_KEY_HERE"
-BOT_TOKEN = "YOUR_DISCORD_BOT_TOKEN_HERE"
+API_KEY = os.environ.get('GEMINI_API_KEY', 'YOUR_GEMINI_API_KEY_HERE')
+BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN', 'YOUR_DISCORD_BOT_TOKEN_HERE')
 
 # Instance ID for multiple bot instances (if needed)
 INSTANCE_ID = f"{os.getpid()}_{int(time.time())}"
@@ -1772,4 +1772,4 @@ if __name__ == "__main__":
         print("3. Check if bot token is correct")
         print("4. Make sure latest_parts_formatted file exists")
         print("5. Check your internet connection")
-        input("Press Enter to exit...")
+        print("Bot startup failed. Check logs for details.")
