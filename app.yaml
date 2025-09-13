@@ -1,0 +1,41 @@
+runtime: python311
+
+# Environment variables
+env_variables:
+  DISCORD_BOT_TOKEN: "YOUR_DISCORD_BOT_TOKEN_HERE"
+  GEMINI_API_KEY: "YOUR_GEMINI_API_KEY_HERE"
+
+# Automatic scaling
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.65
+
+# Health check
+liveness_check:
+  path: "/health"
+  check_interval_sec: 30
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+
+readiness_check:
+  path: "/health"
+  check_interval_sec: 5
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+
+# Network settings
+network:
+  forwarded_ports:
+    - 8080
+
+# Instance class for better performance
+instance_class: F2
+
+# Resources
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10

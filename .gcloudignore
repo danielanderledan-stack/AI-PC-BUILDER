@@ -1,0 +1,77 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Local data files (these will be created in cloud storage)
+discord_sessions.json
+discord_sessions_compressed.txt
+collective_builds.txt
+image_cache.json
+parts_data.json
+parts_cache.json
+latest_parts.txt
+latest_parts_formatted.txt
+session_data.json
+wizard_session.json
+
+# Lock files
+*.lock
+.collective_lock
+.sessions_lock
+
+# Backup directories
+backups/
+
+# Documentation (optional - remove if you want to include)
+*.md
+README.md
+
+# Test files
+test_*.py
+*_test.py
+tests/
+
+# Local environment files
+.env
+.env.local
+.env.development
+.env.production

@@ -1,0 +1,95 @@
+[2025-09-12T22:31:59.854485] User:899147990516760577
+Summary: User wants a white, primarily gaming PC with minimal RGB lighting for around $800 and is slightly concerned with aesthetics.
+Build: AMD Ryzen 5 5500,Kingston SNV3S NV3 500GB PCIe ,Thermalright Assassin X120 Ref,Team Group T-Force Delta RGB 3
+
+[2025-09-12T22:33:36.661284] User:899147990516760577
+
+[2025-09-12T22:33:43.214545] User:899147990516760577
+Summary: User has an $800 budget for a PC build and is unsure about color scheme, with the assistant suggesting black or white for best value.
+
+[2025-09-12T22:33:48.721335] User:899147990516760577
+Summary: User wants a white PC build under $800 and is unsure how much RGB lighting they desire.
+
+[2025-09-12T22:33:52.698282] User:899147990516760577
+Summary: User wants a white, max RGB PC build with a focus on aesthetics over pure performance within an $800 budget.
+
+[2025-09-12T22:33:57.844460] User:899147990516760577
+Summary: User wants a visually striking, all-white PC with maximum RGB lighting for around $800 and needs help determining if that's achievable for their intended use case, which is yet to be specified.
+
+[2025-09-12T22:33:59.653522] User:899147990516760577
+Summary: User wants a white, max RGB gaming PC with top-tier aesthetics for around $800, but hasn't specified any performance needs or expressed concern about budget limitations.
+Build: Intel 14th Gen Core i3-14100F ,Kingston SNV3S NV3 500GB PCIe ,Thermalright Assassin X120 Ref,Kingston Fury Beast DDR4 16GB 
+
+[2025-09-12T22:40:52.773003] User:899147990516760577
+
+[2025-09-12T22:41:34.364912] User:899147990516760577
+
+[2025-09-12T22:41:57.409754] User:899147990516760577
+Summary: User has a $1000 budget for a PC build and is unsure about color scheme options, specifically regarding component availability versus RGB lighting customization.
+
+[2025-09-12T22:42:03.651957] User:899147990516760577
+Summary: User has a $1000 budget for a white PC build and is unsure about how much RGB lighting they want.
+
+[2025-09-12T22:42:09.670010] User:899147990516760577
+Summary: User wants a $1000 white PC build with a moderate amount of RGB lighting and is seeking guidance on balancing aesthetics and performance.
+
+[2025-09-12T22:42:14.448624] User:899147990516760577
+Summary: User wants a $1000 white PC build prioritizing performance over aesthetics (low RGB, performance-focused) and needs help determining components based on their intended PC usage.
+
+[2025-09-12T22:42:26.904350] User:899147990516760577
+Summary: User wants a $1000 white PC build prioritizing video editing performance over aesthetics (low RGB, minimal focus on looks).
+Build: AMD Ryzen 5 5600 6 Core 12 Thr,Kingston SNV3S NV3 500GB PCIe ,None (using stock cooler),Team Group T-Force Delta RGB 3
+
+[2025-09-12T22:43:56.046512] User:899147990516760577
+Summary: User wants a $1000 white PC build prioritizing video editing performance over aesthetics with a moderate level of RGB.
+Build: AMD Ryzen 5 5600 6 Core 12 Thr,Kingston SNV3S NV3 500GB PCIe ,None (using stock cooler),Team Group T-Force Delta RGB 3
+Feedback: I liked it
+
+[2025-09-12T22:44:12.672111] User:899147990516760577
+Summary: User wants a $1000 white PC build prioritizing video editing performance over aesthetics with a moderate level of RGB.
+Build: AMD Ryzen 5 5600 6 Core 12 Thr,Kingston SNV3S NV3 500GB PCIe ,None (using stock cooler),Team Group T-Force Delta RGB 3
+Feedback: I liked it
+
+[2025-09-12T23:08:27.485287] User:899147990516760577 Instance:55416_1757682495
+
+[2025-09-12T23:09:05.623405] User:899147990516760577 Instance:55416_1757682495
+Summary: User wants an $800 PC build and is unsure about color schemes, specifically asking about component availability versus RGB options.
+
+[2025-09-12T23:09:14.354303] User:899147990516760577 Instance:55416_1757682495
+Summary: User wants an $800 PC build but is confused by color scheme questions and mistakenly used a command (!parts) instead of specifying a color.
+
+[2025-09-12T23:09:31.798927] User:899147990516760577 Instance:55416_1757682495
+Summary: User wants a white PC build with maximum RGB lighting for around $800 and is prioritizing aesthetics. They seem confused by the initial color and parts questions.
+
+[2025-09-12T23:09:43.332473] User:899147990516760577 Instance:55416_1757682495
+Summary: User wants a white PC build with maximum RGB and high aesthetic priority (8/10) for an unspecified purpose, initially misunderstanding color prompt commands.
+
+[2025-09-12T23:10:04.303139] User:899147990516760577 Instance:55416_1757682495
+Summary: User wants a white, RGB-heavy gaming PC with a budget of $800 and prioritizes aesthetics, but was initially confused by the assistant's color prompt.
+Parts: Intel 14th Gen Core i3-14100F 4 Cores 8 Threads 4.7GHz LGA1700,Kingston SNV3S NV3 500GB PCIe Gen4 NVMe M.2,Antec CX200M RGB Elite Micro-ATX Gaming - Black,Gigabyte GP-P650SS 650W 80+ Silver ATX 3.0,Thermalright Assassin X120 Refined SE Black Air,Kingston Fury Beast DDR4 16GB,Gigabyte B760M Gaming Plus Wi-Fi DDR4 LGA1700 mATX
+Price: $742
+
+[2025-09-12T23:18:40.396177] User:899147990516760577 Instance:60320_1757683007
+
+[2025-09-12T23:19:09.446711] User:899147990516760577 Instance:60320_1757683007
+Concerns: budget concerns,game-specific: fortnite
+Summary: User wants a Fortnite PC build recommendation, unsure what budget is appropriate for 1080p gameplay versus higher resolutions/competitive settings.
+
+[2025-09-12T23:19:33.199621] User:899147990516760577 Instance:60320_1757683007
+Concerns: budget concerns,game-specific: fortnite
+Summary: The user wants a ~$1000 PC build for Fortnite at 1080p and is now considering color scheme options.
+
+[2025-09-12T23:19:45.995756] User:899147990516760577 Instance:60320_1757683007
+Concerns: budget concerns,game-specific: fortnite
+Summary: User wants a white PC with blue RGB lighting for playing Fortnite at 1080p with a $1000 budget and is unsure how much RGB lighting is appropriate.
+
+[2025-09-12T23:19:57.971355] User:899147990516760577 Instance:60320_1757683007
+Concerns: budget concerns,game-specific: fortnite
+Summary: User wants a white PC with "loads" of blue RGB lighting for around $1000, prioritizing aesthetics highly while still being able to play Fortnite smoothly.
+
+[2025-09-12T23:20:04.036243] User:899147990516760577 Instance:60320_1757683007
+Concerns: budget concerns,game-specific: fortnite
+Summary: The user wants a white PC build with "loads" of blue RGB lighting for around $1000, prioritizing performance over aesthetics.
+Parts: AMD Ryzen 5 5500,Kingston SNV3S NV3 500GB PCIe Gen4 NVMe M.2,Montech XR ATX Mid-Tower - Black,Gigabyte GP-P650SS 650W 80+ Silver ATX 3.0,Thermalright Assassin X120 Refined SE Black Air,Team Group T-Force Delta RGB 3200MHz 16GB,Asus Prime B550M-A WiFi II AM4 mATX Desktop
+Price: $816
+

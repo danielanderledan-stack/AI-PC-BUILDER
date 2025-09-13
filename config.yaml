@@ -1,0 +1,67 @@
+# Discord PC Build Bot Configuration
+# This file contains default configuration values
+
+# Bot Configuration
+bot:
+  # Command prefix for Discord commands
+  command_prefix: "!"
+  
+  # Bot activity status
+  activity: "Building PCs with AI 🤖"
+  
+  # Case insensitive commands
+  case_insensitive: true
+
+# Session Management
+sessions:
+  # Auto-save interval in seconds
+  auto_save_interval: 300  # 5 minutes
+  
+  # Session timeout in seconds
+  session_timeout: 3600  # 1 hour
+  
+  # Maximum concurrent sessions
+  max_sessions: 100
+
+# File Storage
+storage:
+  # Use Google Cloud Storage for persistent data
+  use_cloud_storage: true
+  
+  # Local fallback directory
+  local_storage_path: "/tmp/bot_data"
+  
+  # File compression
+  compress_sessions: true
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Log to Google Cloud Logging
+  use_cloud_logging: true
+
+# Performance
+performance:
+  # Maximum message processing time (seconds)
+  max_message_time: 30
+  
+  # Concurrent user limit
+  max_concurrent_users: 50
+  
+  # Rate limiting
+  rate_limit:
+    messages_per_minute: 60
+    commands_per_minute: 20
+
+# Health Checks
+health:
+  # Health check endpoint path
+  endpoint: "/health"
+  
+  # Check interval
+  check_interval: 30
+  
+  # Timeout for health checks
+  timeout: 10
