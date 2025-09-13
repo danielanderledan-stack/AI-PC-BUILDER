@@ -1102,16 +1102,29 @@ async def start_build(ctx):
     # Create a private thread for this build session
     thread_name = f"Start Building PC - {ctx.author.display_name}"
     
-    # Check if thread already exists
-    existing_thread = None
-    for thread in ctx.channel.threads:
-        if thread.name == thread_name and not thread.archived:
-            existing_thread = thread
-            break
-    
-    if existing_thread:
-        await ctx.send(f"You already have an active build thread: {existing_thread.mention}")
-        return
+    # Check if user has an active session - if not, allow creating new thread
+    if user_id not in session_manager.sessions:
+        # No active session, safe to create new thread
+        pass
+    else:
+        # Check if there's an active, non-archived thread for this user
+        existing_thread = None
+        for thread in ctx.channel.threads:
+            if (thread.name == thread_name and 
+                not thread.archived and 
+                not thread.locked):
+                # Check if user is still in the thread
+                try:
+                    await thread.fetch_member(ctx.author.id)
+                    existing_thread = thread
+                    break
+                except:
+                    # User not in thread, it's safe to create new one
+                    pass
+        
+        if existing_thread:
+            await ctx.send(f"You already have an active build thread: {existing_thread.mention}")
+            return
     
     # Create new private thread
     try:
