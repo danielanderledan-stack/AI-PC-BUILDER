@@ -1115,11 +1115,13 @@ async def start_build(ctx):
     
     # Create new private thread
     try:
+        logger.info(f"Attempting to create private thread: {thread_name}")
         thread = await ctx.channel.create_thread(
             name=thread_name,
             type=discord.ChannelType.private_thread,
             reason=f"PC build session for {ctx.author.display_name}"
         )
+        logger.info(f"Successfully created thread: {thread.name}")
         
         # Add the user to the thread
         await thread.add_user(ctx.author)
@@ -1129,7 +1131,7 @@ async def start_build(ctx):
         
     except Exception as e:
         logger.error(f"Error creating thread: {e}")
-        await ctx.send("❌ Could not create private thread. You may need administrator permissions.")
+        await ctx.send(f"❌ Could not create private thread. Error: {str(e)}")
         return
     
     # Create new session
